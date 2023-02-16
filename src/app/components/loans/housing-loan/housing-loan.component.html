@@ -1,0 +1,18 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" (input)="validateChange()">
+      <label for="amount">Amount in EUR (1 - 1000000)</label>
+      <input type="number" formControlName="amount">
+      <p *ngIf="amountWrongFormat" class="error-message">Value should contain only numbers</p>
+      <p *ngIf="amountTooBig" class="error-message">Value should be less than 1000000</p>
+      <p *ngIf="amountTooSmall" class="error-message">Value should be more than 0</p>
+  
+      <label for="years">Payback time in years (1 - 60)</label>
+      <input type="number" formControlName="years">
+      <p *ngIf="yearsWrongFormat" class="error-message">Value should contain only numbers</p>
+      <p *ngIf="yearsTooBig" class="error-message">Value should be less than 60</p>
+      <p *ngIf="yearsTooSmall" class="error-message">Value should be more than 0</p>
+
+      <p *ngIf="formInvalid" class="error-message">Form contains errors</p>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
