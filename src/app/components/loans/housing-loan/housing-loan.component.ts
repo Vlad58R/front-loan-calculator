@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { HousingLoan } from 'src/app/models/housing-loan';
 import { HousingLoanService } from 'src/app/services/housing-loan/housing-loan.service';
 
@@ -17,7 +18,6 @@ export class HousingLoanComponent implements OnInit {
   yearsWrongFormat = false;
   yearsTooBig = false;
   yearsTooSmall = false;
-
   formInvalid = false;
 
   housingLoan: HousingLoan | undefined;
@@ -43,21 +43,13 @@ export class HousingLoanComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // Process checkout data here
-    console.warn(this.form.value);
-    console.warn(this.form);
     if (this.form.valid) {
       this.formInvalid = false;
-      console.log('valid');
-
       this.houseLoanService.getHousingLoan('' + this.form.value.amount, '' + this.form.value.years).subscribe(loan => {
-        console.log('loan:');
-        console.log(loan);
         this.housingLoan = loan as HousingLoan;
       });
     } else {
       this.formInvalid = true;
-      console.log('invalid');
     }
   }
 

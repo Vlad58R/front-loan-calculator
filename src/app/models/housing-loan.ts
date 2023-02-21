@@ -1,6 +1,6 @@
-import { HousingLoanPayments } from "./housing-loan/housing-loan-payments";
+import { HousingLoanPayment } from "./housing-loan/housing-loan-payment";
 
 export interface HousingLoan {
-    payments: HousingLoanPayments[];
-    errorMessages: string;
+    housingLoanPayment: HousingLoanPayment;
+    errorMessage: string;
 }

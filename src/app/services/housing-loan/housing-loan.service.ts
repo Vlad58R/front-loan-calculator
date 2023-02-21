@@ -15,8 +15,6 @@ export class HousingLoanService {
   }
 
   public getHousingLoan(amount: string, years: string): Observable<HousingLoan> {
-    console.log("amount: " + amount);
-    console.log("years: " + years);
     let queryParams = new HttpParams();
     queryParams = queryParams.append("amount", amount).append("years", years);
     return this.http.get<HousingLoan>(this.housingLoanUrl, { params: queryParams });

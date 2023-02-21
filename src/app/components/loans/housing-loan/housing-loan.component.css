@@ -32,3 +32,20 @@ input[type=text], input[type=number], select {
   .error-message {
     color: red;
   }
+
+  .row {
+    display: flex;
+  }
+  
+  .first, .other {
+    border: 1px solid red;
+  }
+  
+  .first {
+    flex-grow: 1;
+  }
+  
+  .other {
+    flex-basis: 20px;
+    flex-shrink: 0;
+  }
